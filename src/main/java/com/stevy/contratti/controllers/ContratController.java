@@ -42,6 +42,7 @@ public class ContratController {
     @PreAuthorize("hasRole('ROLE_HR') or hasRole('ROLE_ADMMINISTRAZION') or hasRole('ROLE_LOGISTICA') or hasRole('ROLE_GESTIONE')or hasRole('ROLE_SUPER_ADMIN')")
     public ResponseEntity<MessageResponse> create(@Valid @RequestBody Contrat contrat) {
         contratRepository.save(contrat);
+
         return ResponseEntity.ok(new MessageResponse("create contrat", "ok",true, "contrat created successfully",contratRepository.save(contrat)));
     }
 
